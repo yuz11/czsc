@@ -125,6 +125,10 @@ class BI:
         return len(self.bars)
 
     @property
+    def vol(self):
+        return sum([bar.vol for bar in self.bars])
+
+    @property
     def rsq(self):
         close = [x.close for x in self.bars[1:-1]]
         return round(RSQ(close), 4)
