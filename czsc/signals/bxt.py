@@ -335,7 +335,7 @@ def check_nine_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sign
 
             # 类趋势一卖
             if bi8.low > bi6.high > bi6.low > bi4.high > bi4.low > bi2.high \
-                    and bi9.power < min([bi1.power, bi3.power, bi5.power, bi7.power])
+                    and bi9.power < min([bi1.power, bi3.power, bi5.power, bi7.power]) \
                     and bi9.vol < min([bi1.vol, bi3.vol, bi5.vol, bi7.vol]):
                 return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔类趋势')
 
