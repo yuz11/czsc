@@ -107,11 +107,11 @@ def check_five_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sign
         # aAb式底背驰
         if min(bi2.high, bi4.high) > max(bi2.low, bi4.low) and max_high == bi1.high and bi5.power < bi1.power and bi5.vol < bi1.vol:
             if (min_low == bi3.low and bi5.low < bi1.low) or (min_low == bi5.low):
-                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='五笔aAb式')
+                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='五笔', v3='aAb式')
 
         # 类趋势底背驰
         if max_high == bi1.high and min_low == bi5.low and bi4.high < bi2.low and bi5.power < min(bi3.power, bi1.power) and bi5.vol < min(bi3.vol, bi1.vol):
-            return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='五笔类趋势')
+            return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='五笔', v3='类趋势')
 
         # 上颈线突破
         if (min_low == bi1.low and bi5.high > min(bi1.high, bi2.high) > bi5.low > bi1.low) \
@@ -127,11 +127,11 @@ def check_five_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sign
         # aAb式类一卖
         if min(bi2.high, bi4.high) > max(bi2.low, bi4.low) and min_low == bi1.low and bi5.power < bi1.power and bi5.vol < bi1.vol:
             if (max_high == bi3.high and bi5.high > bi1.high) or (max_high == bi5.high):
-                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='五笔aAb式')
+                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='五笔', v3='aAb式')
 
         # 类趋势类一卖
         if min_low == bi1.low and max_high == bi5.high and bi5.power < min(bi1.power, bi3.power) and bi5.vol < min(bi3.vol, bi1.vol) and bi4.low > bi2.high:
-            return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='五笔类趋势')
+            return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='五笔', v3='类趋势')
 
         # 下颈线突破
         if (max_high == bi1.high and bi5.low < max(bi1.low, bi2.low) < bi5.high < max_high) \
@@ -170,19 +170,19 @@ def check_seven_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sig
         if bi1.high == max_high and bi7.low == min_low:
             # aAbcd式底背驰
             if min(bi2.high, bi4.high) > max(bi2.low, bi4.low) > bi6.high and bi7.power < bi5.power and bi7.vol < bi5.vol:
-                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='七笔aAbcd式')
+                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='七笔', v3='aAbcd式')
 
             # abcAd式底背驰
             if bi2.low > min(bi4.high, bi6.high) > max(bi4.low, bi6.low) and bi7.power < (bi1.high - bi3.low) and bi7.vol < min(bi3.vol, bi1.vol):
-                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='七笔abcAd式')
+                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='七笔', v3='abcAd式')
 
             # aAb式底背驰
             if min(bi2.high, bi4.high, bi6.high) > max(bi2.low, bi4.low, bi6.low) and bi7.power < bi1.power and bi7.vol < bi1.vol:
-                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='七笔aAb式')
+                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='七笔', v3='aAb式')
 
             # 类趋势底背驰
             if bi2.low > bi4.high and bi4.low > bi6.high and bi7.power < min(bi5.power, bi3.power, bi1.power) and bi7.vol < min(bi5.vol, bi3.vol, bi1.vol):
-                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='七笔类趋势')
+                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='底背驰', v2='七笔', v3='类趋势')
 
         # 向上中枢完成
         if bi4.low == min_low and min(bi1.high, bi3.high) > max(bi1.low, bi3.low) \
@@ -202,19 +202,19 @@ def check_seven_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sig
         if bi1.low == min_low and bi7.high == max_high:
             # aAbcd式顶背驰
             if bi6.low > min(bi2.high, bi4.high) > max(bi2.low, bi4.low) and bi7.power < bi5.power and bi7.vol < bi5.vol:
-                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='七笔aAbcd式')
+                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='七笔', v3='aAbcd式')
 
             # abcAd式顶背驰
             if min(bi4.high, bi6.high) > max(bi4.low, bi6.low) > bi2.high and bi7.power < (bi3.high - bi1.low) and bi7.vol < min(bi3.vol, bi1.vol):
-                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='七笔abcAd式')
+                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='七笔', v3='abcAd式')
 
             # aAb式顶背驰
             if min(bi2.high, bi4.high, bi6.high) > max(bi2.low, bi4.low, bi6.low) and bi7.power < bi1.power and bi7.vol < bi1.vol:
-                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='七笔aAb式')
+                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='七笔', v3='aAb式')
 
             # 类趋势顶背驰
             if bi2.high < bi4.low and bi4.high < bi6.low and bi7.power < min(bi5.power, bi3.power, bi1.power) and bi7.vol < min(bi5.vol, bi3.vol, bi1.vol):
-                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='七笔类趋势')
+                return Signal(k1=freq.value, k2=di_name, k3='基础形态', v1='顶背驰', v2='七笔', v3='类趋势')
 
         # 向下中枢完成
         if bi4.high == max_high and min(bi1.high, bi3.high) > max(bi1.low, bi3.low) \
@@ -254,24 +254,24 @@ def check_nine_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sign
             # aAb式类一买
             if min(bi2.high, bi4.high, bi6.high, bi8.high) > max(bi2.low, bi4.low, bi6.low, bi8.low) \
                     and bi9.power < bi1.power and bi9.vol < bi1.vol and bi3.low >= bi1.low and bi7.high <= bi9.high:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2='九笔aAb式')
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2='九笔', v3='aAb式')
 
             # aAbcd式类一买
             if min(bi2.high, bi4.high, bi6.high) > max(bi2.low, bi4.low, bi6.low) > bi8.high \
                     and bi9.power < bi7.power and bi9.vol < bi7.vol:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2='九笔aAbcd式')
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2='九笔', v3='aAbcd式')
 
             # ABC式类一买
             if bi3.low < bi1.low and bi7.high > bi9.high \
                     and min(bi4.high, bi6.high) > max(bi4.low, bi6.low) \
                     and (bi1.high - bi3.low) > (bi7.high - bi9.low):
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2='九笔ABC式')
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2='九笔', v3='ABC式')
 
             # 类趋势一买
             if bi8.high < bi6.low < bi6.high < bi4.low < bi4.high < bi2.low \
                     and bi9.power < min([bi1.power, bi3.power, bi5.power, bi7.power]) \
                     and bi9.vol < min([bi1.vol, bi3.vol, bi5.vol, bi7.vol]):
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2='九笔类趋势')
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2='九笔', v3='类趋势')
 
         # 九笔类一买（2~4构成中枢A，6~8构成中枢B，9背驰）
         if max_high == max(bi1.high, bi3.high) and min_low == bi9.low \
@@ -279,7 +279,7 @@ def check_nine_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sign
                 and min(bi2.low, bi4.low) > max(bi6.high, bi8.high) \
                 and min(bi6.high, bi8.high) > max(bi6.low, bi8.low) \
                 and bi9.power < bi5.power and bi9.vol < bi5.vol:
-            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2='九笔aAbBc式')
+            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2='九笔', v3='aAbBc式')
 
         # 类三买（1357构成中枢，最低点在3或5）
         if max_high == bi9.high > bi9.low \
@@ -287,14 +287,14 @@ def check_nine_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sign
                 > min([x.high for x in [bi1, bi3, bi5, bi7]]) \
                 > max([x.low for x in [bi1, bi3, bi5, bi7]]) \
                 > min([x.low for x in [bi3, bi5]]) == min_low:
-            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类三买', v2='九笔GG三买')
+            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类三买', v2='九笔', v3='GG三买')
 
         # 类三买（357构成中枢，8的力度小于2，9回调不跌破GG构成三买）
         if bi8.power < bi2.power and bi8.vol < bi2.vol and max_high == bi9.high > bi9.low \
                 > max([x.high for x in [bi3, bi5, bi7]]) \
                 > min([x.high for x in [bi3, bi5, bi7]]) \
                 > max([x.low for x in [bi3, bi5, bi7]]) > bi1.low == min_low:
-            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类三买', v2='九笔GG三买')
+            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类三买', v2='九笔', v3='GG三买')
 
         if min_low == bi5.low and max_high == bi1.high and bi4.high < bi2.low:  # 前五笔构成向下类趋势
             zd = max([x.low for x in [bi5, bi7]])
@@ -302,7 +302,7 @@ def check_nine_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sign
             gg = max([x.high for x in [bi5, bi7]])
             if zg > zd and bi8.high > gg:  # 567构成中枢，且8的高点大于gg
                 if bi9.low > zg:
-                    return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类三买', v2='九笔ZG三买')
+                    return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类三买', v2='九笔', v3='ZG三买')
 
                 # 类二买
                 if bi9.high > gg > zg > bi9.low > zd:
@@ -315,29 +315,29 @@ def check_nine_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sign
                     and min(bi6.high, bi8.high) > max(bi6.low, bi8.low) \
                     and max(bi2.high, bi4.high) < min(bi6.low, bi8.low) \
                     and bi9.power < bi5.power and bi9.vol < bi5.vol:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔aAbBc式')
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔', v3='aAbBc式')
 
             # aAb式类一卖
             if min(bi2.high, bi4.high, bi6.high, bi8.high) > max(bi2.low, bi4.low, bi6.low, bi8.low) \
                     and bi9.power < bi1.power and bi9.vol < bi1.vol and bi3.high <= bi1.high and bi7.low >= bi9.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔aAb式')
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔', v3='aAb式')
 
             # aAbcd式类一卖
             if bi8.low > min(bi2.high, bi4.high, bi6.high) > max(bi2.low, bi4.low, bi6.low) \
                     and bi9.power < bi7.power and bi9.vol < bi7.vol:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔aAbcd式')
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔', v3='aAbcd式')
 
             # ABC式类一卖
             if bi3.high > bi1.high and bi7.low < bi9.low \
                     and min(bi4.high, bi6.high) > max(bi4.low, bi6.low) \
                     and (bi3.high - bi1.low) > (bi9.high - bi7.low):
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔ABC式')
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔', v3='ABC式')
 
             # 类趋势一卖
             if bi8.low > bi6.high > bi6.low > bi4.high > bi4.low > bi2.high \
                     and bi9.power < min([bi1.power, bi3.power, bi5.power, bi7.power]) \
                     and bi9.vol < min([bi1.vol, bi3.vol, bi5.vol, bi7.vol]):
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔类趋势')
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2='九笔', v3='类趋势')
 
         # 九笔三卖
         if max_high == bi1.high and min_low == bi9.low \
@@ -350,7 +350,7 @@ def check_nine_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Sign
             dd = min([x.low for x in [bi5, bi7]])
             if zg > zd and bi8.low < dd:  # 567构成中枢，且8的低点小于dd
                 if bi9.high < zd:
-                    return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类三卖', v2='九笔ZD三卖')
+                    return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类三卖', v2='九笔', v3='ZD三卖')
 
                 # 类二卖
                 if dd < zd <= bi9.high < zg:
@@ -382,36 +382,36 @@ def check_eleven_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Si
             if bi5.low == min([x.low for x in [bi1, bi3, bi5]]) \
                     and bi9.low > bi11.low and bi9.high > bi11.high \
                     and bi8.high > bi6.low and bi1.high - bi5.low > bi9.high - bi11.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="11笔A5B3C3式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="十一笔", v3='A5B3C3式')
 
             # ABC式类一买，A3B3C5
             if bi1.high > bi3.high and bi1.low > bi3.low \
                     and bi7.high == max([x.high for x in [bi7, bi9, bi11]]) \
                     and bi6.high > bi4.low and bi1.high - bi3.low > bi7.high - bi11.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="11笔A3B3C5式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="十一笔", v3='A3B3C5式')
 
             # ABC式类一买，A3B5C3
             if bi1.low > bi3.low and min(bi4.high, bi6.high, bi8.high) > max(bi4.low, bi6.low, bi8.low) \
                     and bi9.high > bi11.high and bi1.high - bi3.low > bi9.high - bi11.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="11笔A3B5C3式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="十一笔", v3='A3B5C3式')
 
             # a1Ab式类一买，a1（1~7构成的类趋势）
             if bi2.low > bi4.high > bi4.low > bi6.high > bi5.low > bi7.low and bi10.high > bi8.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="11笔a1Ab式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="十一笔", v3='a1Ab式')
 
         # 类二买（1~7构成盘整背驰，246构成下跌中枢，9/11构成上涨中枢，且上涨中枢GG大于下跌中枢ZG）
         if bi7.power < bi1.power and bi7.vol < bi1.vol and min_low == bi7.low < max([x.low for x in [bi2, bi4, bi6]]) \
                 < min([x.high for x in [bi2, bi4, bi6]]) < max([x.high for x in [bi9, bi11]]) < bi1.high == max_high \
                 and bi11.low > min([x.low for x in [bi2, bi4, bi6]]) \
                 and min([x.high for x in [bi9, bi11]]) > max([x.low for x in [bi9, bi11]]):
-            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类二买', v2="11笔")
+            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类二买', v2="十一笔")
 
         # 类二买（1~7为区间极值，9~11构成上涨中枢，上涨中枢GG大于4~6的最大值，上涨中枢DD大于4~6的最小值）
         if max_high == bi1.high and min_low == bi7.low \
                 and min(bi9.high, bi11.high) > max(bi9.low, bi11.low) \
                 and max(bi11.high, bi9.high) > max(bi4.high, bi6.high) \
                 and min(bi9.low, bi11.low) > min(bi4.low, bi6.low):
-            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类二买', v2="11笔")
+            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类二买', v2="十一笔")
 
         # 类三买（1~9构成大级别中枢，10离开，11回调不跌破GG）
         gg = max([x.high for x in [bi1, bi2, bi3]])
@@ -421,29 +421,29 @@ def check_eleven_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> Si
         if max_high == bi11.high and bi11.low > zg > zd \
                 and gg > bi5.low and gg > bi7.low and gg > bi9.low \
                 and dd < bi5.high and dd < bi7.high and dd < bi9.high:
-            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类三买', v2="11笔GG三买")
+            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类三买', v2="十一笔", v3='GG三买')
 
     if direction == Direction.Up:
         if max_high == bi11.high and min_low == bi1.low:
             # ABC式类一卖，A5B3C3
             if bi5.high == max([bi1.high, bi3.high, bi5.high]) and bi9.low < bi11.low and bi9.high < bi11.high \
                     and bi8.low < bi6.high and bi11.high - bi9.low < bi5.high - bi1.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="11笔A5B3C3式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="十一笔", v3='A5B3C3式')
 
             # ABC式类一卖，A3B3C5
             if bi7.low == min([bi11.low, bi9.low, bi7.low]) and bi1.high < bi3.high and bi1.low < bi3.low \
                     and bi6.low < bi4.high and bi11.high - bi7.low < bi3.high - bi1.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="11笔A3B3C5式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="十一笔", v3='A3B3C5式')
 
             # ABC式类一卖，A3B5C3
             if bi1.high < bi3.high and min(bi4.high, bi6.high, bi8.high) > max(bi4.low, bi6.low, bi8.low) \
                     and bi9.low < bi11.low and bi3.high - bi1.low > bi11.high - bi9.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="11笔A3B5C3式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="十一笔", v3='A3B5C3式')
 
         # 类二卖：1~9构成类趋势，11不创新高
         if max_high == bi9.high > bi8.low > bi6.high > bi6.low > bi4.high > bi4.low > bi2.high > bi1.low == min_low \
                 and bi11.high < bi9.high:
-            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类二卖', v2="11笔")
+            return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类二卖', v2="十一笔")
     return v
 
 
@@ -471,38 +471,38 @@ def check_thirteen_bi(bis: List[Union[BI, FakeBI]], freq: Freq, di: int = 1) -> 
             # ABC式类一买，A5B3C5
             if bi5.low < min(bi1.low, bi3.low) and bi9.high > max(bi11.high, bi13.high) \
                     and bi8.high > bi6.low and bi1.high - bi5.low > bi9.high - bi13.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="13笔A5B3C5式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="十三笔", v3='A5B3C5式')
 
             # ABC式类一买，A3B5C5
             if bi3.low < min(bi1.low, bi5.low) and bi9.high > max(bi11.high, bi13.high) \
                     and min(bi4.high, bi6.high, bi8.high) > max(bi4.low, bi6.low, bi8.low) \
                     and bi1.high - bi3.low > bi9.high - bi13.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="13笔A3B5C5式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="十三笔", v3='A3B5C5式')
 
             # ABC式类一买，A5B5C3
             if bi5.low < min(bi1.low, bi3.low) and bi11.high > max(bi9.high, bi13.high) \
                     and min(bi6.high, bi8.high, bi10.high) > max(bi6.low, bi8.low, bi10.low) \
                     and bi1.high - bi5.low > bi11.high - bi13.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="13笔A5B5C3式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一买', v2="十三笔", v3='A5B5C3式')
 
     if direction == Direction.Up:
         if max_high == bi13.high and min_low == bi1.low:
             # ABC式类一卖，A5B3C5
             if bi5.high > max(bi3.high, bi1.high) and bi9.low < min(bi11.low, bi13.low) \
                     and bi8.low < bi6.high and bi5.high - bi1.low > bi13.high - bi9.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="13笔A5B3C5式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="十三笔", v3='A5B3C5式')
 
             # ABC式类一卖，A3B5C5
             if bi3.high > max(bi5.high, bi1.high) and bi9.low < min(bi11.low, bi13.low) \
                     and min(bi4.high, bi6.high, bi8.high) > max(bi4.low, bi6.low, bi8.low) \
                     and bi3.high - bi1.low > bi13.high - bi9.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="13笔A3B5C5式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="十三笔", v3='A3B5C5式')
 
             # ABC式类一卖，A5B5C3
             if bi5.high > max(bi3.high, bi1.high) and bi11.low < min(bi9.low, bi13.low) \
                     and min(bi6.high, bi8.high, bi10.high) > max(bi6.low, bi8.low, bi10.low) \
                     and bi5.high - bi1.low > bi13.high - bi11.low:
-                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="13笔A5B5C3式")
+                return Signal(k1=freq.value, k2=di_name, k3='类买卖点', v1='类一卖', v2="十三笔", v3='A5B5C3式')
     return v
 
 
