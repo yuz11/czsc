@@ -36,7 +36,7 @@ exchanges = {
     "XHKG": "港交所"
 }
 
-dt_fmt = "%Y%m%d"
+dt_fmt = "%Y-%m-%d %H:%M:%S"
 date_fmt = "%Y%m%d"
 
 try:
